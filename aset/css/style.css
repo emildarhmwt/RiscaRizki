@@ -1,0 +1,235 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.banner {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.slider {
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  /* filter: blur(0.5px);
+    -webkit-filter: blur(0.5px); */
+}
+
+#slideimage {
+  width: 100%;
+  height: 100vh;
+}
+
+.overlay {
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7, ));
+  position: absolute;
+  top: 0;
+}
+
+.invite_foto {
+  text-align: center;
+}
+
+.tulis {
+  text-align: center;
+}
+
+.judul {
+  text-align: center;
+  font-family: 'Platypi';
+  color: #4a7a54;
+  font-size: 12px;
+  margin-top: -1rem;
+  font-weight: 700;
+}
+
+.rr {
+  margin-top: -1.5rem;
+  text-align: center;
+  font-size: 40px;
+  font-family: "Tangerine";
+  color: #4a7a54;
+  font-weight: 700;
+}
+
+.penerimaundangan {
+  position: absolute;
+  bottom: 30px;
+  text-align: center;
+  padding: 0px 20px;
+  width: 100%;
+}
+
+.kepada {
+  text-align: center;
+  font-family: 'Salsa';
+  font-size: 14px;
+  font-style: bold;
+  color: #4a7a54;
+  font-weight: 600;
+}
+
+.bapak {
+  font-family: 'Salsa';
+  font-size: 14px;
+  font-style: bold;
+  color: #4a7a54;
+  margin-top: -20px;
+  font-weight: 600;
+}
+
+.nama {
+  text-align: center;
+  font-family: 'Agbalumo';
+  font-size: 20px;
+  font-style: bold;
+  margin-bottom: 30px;
+  color: #4a7a54;
+}
+
+.button .button {
+  position: relative;
+  background: linear-gradient(90deg, #8cc09a, rgb(198, 228, 204));
+  padding: 0.6rem 1rem;
+  color: #25452d;
+  box-sizing: border-box;
+  border-radius: 20px;
+  text-decoration: none;
+  font-family: 'Salsa';
+  /* font-style: italic; */
+  font-size: 15px;
+  text-align: center;
+}
+
+i {
+  margin-right: 5px;
+}
+
+.bunga {
+  margin-top: -10rem;
+  margin-left: -4.4rem;
+  /* transform: rotate(10deg); */
+  animation: fly 2s infinite;
+  transform-origin: bottom;
+}
+
+@keyframes fly {
+  50% {
+    transform: translateX(20px);
+    transform: translateY(5px);
+    transform: rotate(2deg);
+  }
+}
+
+.bunga2 {
+  margin-top: -14.7rem;
+  /* margin-left: 12rem; */
+  position: absolute;
+  right: -60px;
+  animation: fly2 2s infinite;
+  transform-origin: bottom;
+}
+
+@keyframes fly2 {
+  50% {
+    transform: translateX(20px);
+    transform: translateY(5px);
+    transform: rotate(2deg);
+  }
+}
+
+/* @media screen and (max-width: 450px) {
+  .kepada {
+    margin-top: 35rem;
+  }
+} */
+
+/* @media screen and (max-width: 100px) {
+  .kepada {
+    margin-top: 25rem;
+  }
+}
+
+@media screen and (max-width: 200px) {
+  .kepada {
+    margin-top: 2rem;
+  }
+}
+
+@media screen and (max-width: 300px) {
+  .kepada {
+    margin-top: 25rem;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .kepada {
+    margin-top: 21rem;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .kepada {
+    margin-top: 25rem;
+  }
+} */
+
+/* @media screen and (width: 360px),
+screen and(height: 640px) {
+  .kepada {
+    margin-top: 25rem;
+  }
+}
+
+@media screen and (min-width: 360px),
+screen and(min-height: 760px) {
+  .kepada {
+    margin-top: 25rem;
+  }
+}
+
+@media screen and (max-width: 300px) {
+  .kepada {
+    margin-top: 27rem;
+  }
+}
+
+@media screen and (max-width: 340px) {
+  .kepada {
+    margin-top: 21rem;
+  }
+
+  .nama {
+    margin-top: -1rem;
+    margin-bottom: 1rem;
+  }
+
+  .bunga {
+    margin-top: -14rem;
+  }
+
+  .bunga2 {
+    margin-left: 10rem;
+  }
+}
+
+@media screen and (min-width: 400px) {
+  .kepada {
+    margin-top: 22rem;
+  }
+
+  .bunga2 {
+    margin-left: 15rem;
+  }
+} */
