@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  <!-- Tag untuk thumbnail -->
+  <meta property="og:image" itemprop="image"
+    content="https://raw.githubusercontent.com/ERwedding/RiscaRizki/main/aset/img/thumbnail.jpg">
+  <meta property="og:type" content="website" />
+  <meta property="og:image:type" content="image/jpg">
+  <meta property="og:image:width" content="1317">
+  <meta property="og:image:height" content="877">
+  <meta property="og:url" content="https://erwedding.github.io/RiscaRizki">
+
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css"
+    href="https://cdn.datatables.net/fixedheader/3.2.0/css/fixedHeader.bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css"
+    href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.bootstrap.min.css" />
+
+  <title>Risca & Rizki</title>
+  <link rel="shortcut icon" href="aset/img/logo.png" type="" />
+  <link rel="stylesheet" href="aset/css/styles.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.6.0/remixicon.css" crossorigin="" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Agbalumo&family=Beau+Rivage&family=Berkshire+Swash&family=Clicker+Script&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Dancing+Script:wght@400..700&family=Delius&family=Grandstander:ital,wght@0,100..900;1,100..900&family=Itim&family=Jockey+One&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Macondo&family=Mali:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&family=Marck+Script&family=MonteCarlo&family=Niconne&family=Parisienne&family=Pinyon+Script&family=Platypi:ital,wght@0,300..800;1,300..800&family=Playball&family=Righteous&family=Sacramento&family=Salsa&family=Sofia&family=Tangerine:wght@400;700&display=swap"
+    rel="stylesheet">
+  <script src="https://unpkg.com/scrollreveal"></script>
+  <style>
+    .komentar {
+      border-radius: 20px;
+      width: 340px;
+      border: 2px #14664B solid;
+      font-family: 'Salsa';
+      color: #14664B;
+    }
+
+    th.sorting_asc {
+      display: none;
+    }
+
+    label {
+      display: none;
+      /* menyembunyikan label */
+    }
+
+
+    .dataTables_paginate {
+      font-family: 'Salsa';
+      text-align: center;
+      /* Pusatkan pagination */
+      margin-top: 20px;
+      /* Jarak antara pagination dengan tabel */
+    }
+
+    .pagination li {
+      display: inline-block;
+      /* Menampilkan item pagination secara horizontal */
+      margin: 0 5px;
+      /* Jarak antara setiap item pagination */
+    }
+
+    .dataTables_wrapper .dataTables_paginate {
+      text-align: center !important;
+    }
+
+    .dataTables_wrapper .dataTables_paginate .paginate_button {
+      display: inline-block !important;
+      display: inline !important;
+      /* Untuk mendukung IE7 */
+      zoom: 1 !important;
+      margin-left: 5px !important;
+      /* Jarak antar tombol */
+    }
+
+    div.dataTables_wrapper div.dataTables_paginate ul.pagination {
+      margin: 15px 0 !important;
+      text-align: center !important;
+      padding-left: 23%;
+    }
+
+
+    .pagination li a {
+      font-family: 'Salsa';
+      color: #14664B;
+      font-weight: bold;
+      text-decoration: none;
+      padding: 5px 10px;
+      /* Tambahkan padding agar tautan terlihat lebih besar */
+      border: 1px solid #14664B;
+      /* Tambahkan border pada tautan */
+      border-radius: 5px;
+      /* Agar tautan terlihat lebih bulat */
+      transition: background-color 0.3s, color 0.3s;
+      /* Efek transisi saat tautan berubah warna */
+    }
+
+    .pagination li a:hover {
+      background-color: rgb(8, 43, 27) !important;
+      color: #fff;
+      /* Ubah warna font saat tautan dihover */
+    }
+
+    .pagination li.active a {
+      background-color: rgb(8, 43, 27) !important;
+      color: #fff;
+    }
+  </style>
+</head>
+
+<body>
+  <audio id="myAudio" src="lagu2.mp3" preload="auto" loop></audio>
+
+  <section class="home1" id="home1">
+    <div class="audio-container">
+      <button id="playPauseBtn" onclick="toggleAudio()">
+        <img id="playPauseIcon" src="play.svg" alt="Pause" width="10px" height="10px">
+      </button>
+    </div>
+    <p class="the">THE WEDDING OF</p>
+    <div class="rr">
+      <p>Risca Annisa, S.Akun.</p>
+      <p>&</p>
+      <p>Gustiawan Rizki,.S.Kom.</p>
+    </div>
+    <p class="happy">
+      we would be happy to see you at our wedding on this happy day
+    </p>
+    <p class="tgl">MEI</p>
+    <div class="hometengh">
+      <div class="solid"></div>
+      <div class="solid1"></div>
+      <div class="saturday">
+        <span class="jumat"> SATURDAY </span> <span class="tiga"> 04 </span>
+        <span class="sembilan"> AT 10 AM </span>
+      </div>
+      <p></p>
+      <div class="solid2"></div>
+      <div class="solid3"></div>
+    </div>
+    <p class="duaempat">2024</p>
+    <div class="penambah1">
+      <p>lala</p>
+    </div>
+  </section>
+
+  <section class="save2" id="save2">
+    <div class="banner_save2">
+      <div class="slider_save2">
+        <div class="sliders_save2">
+          <img src="aset/img/ph4.jpg" alt="img1">
+        </div>
+        <div class="sliders_save2">
+          <img src="aset/img/ph6.jpg" alt="img2">
+        </div>
+        <div class="sliders_save2">
+          <img src="aset/img/ph2.jpg" alt="img3">
+        </div>
+      </div>
+      <div class="overlay_save2">
+        <!-- <div class="img_save3">
+          <p class="sth2">SAVE THE DATE </p>
+          <p class="sthrr2">Risca & Rizki</p>
+        </div> -->
+      </div>
+    </div>
+  </section>
+
+  <img class="batasimageundangan" src="aset/img/batas2.png" alt="">
+
+  <section class="invite" id="invite">
+    <div class="img_invite">
+      <img class="img_invite" src="aset/img/10.jpg" alt="" width="170px" height="auto">
+    </div>
+    <div class="menuju">
+      <div class="animasibunga">
+        <img class="bunga_foto" src="aset/img/bungafoto11.png" alt="img">
+        <img class="bunga_foto2" src="aset/img/bungafoto12.png" alt="img">
+      </div>
+      <p class="mh">MENUJU HARI</p>
+      <P class="bhg">Bahagia</P>
+    </div>
+    <div class="dashed-line"></div>
+    <div class="dan">
+      <p>
+        “Dan di antara tanda-tanda (Kebesaran)-Nya ialah dia menciptakan
+        pasangan-pasangan untukmu dari jenis dirimu sendiri, agar kamu
+        cenderung dan merasa tenteram kepadanya, Dan dia menjadikan di
+        antaramu rasa kasih dan sayang. Sungguh, pada yang demikian itu
+        benar-benar terdapat tanda-tanda (kebesaran Allah) bagi kaum
+        yang berpikir..”
+      </p>
+      <p>(Q.S. Ar-Rum : 21)</p>
+      <div class="penambah">
+        <p>lala</p>
+        <p>lala</p>
+        <p>lla</p>
+        <p>lala</p>
+      </div>
+    </div>
+  </section>
+
+  <img class="batasimageundangan2" src="aset/img/batas.png" alt="">
+
+  <section class="kedua" id="kedua">
+    <div class="penambah">
+      <p>lala</p>
+    </div>
+    <div class="km_kedua">
+      <p class="km">Kedua Mempelai</p>
+      <p class="dgn">
+        Assalamu'alaikum Wr. Wb. Dengan memohon Rahmat & Ridho Allah SWT yang
+        telah menciptakan makhluk-Nya secara berpasang-pasangan. Kami bermaksud
+        mengundang Bapak/Ibu/Saudara/i untuk menghadiri acara pernikahan
+        putra-putri kami:
+      </p>
+    </div>
+    <div class="containerbride1">
+      <div class="containerg">
+        <div class="groom">
+          <div class="title">The Bride</div>
+          <img class="bridecewe" src="aset/img/cewe.png" alt="Dwiky">
+          <div class="name">
+            <p class="riz"> Risca </p>
+            <p class="gus">Risca Annisa,S.Akun.<br> Putri Pertama dari
+              <br>
+              Bapak Bungkarudin (Alm.) & <br> Ibu Susilawati
+            </p>
+            <div class="sosmed">
+              <p><a href="https://www.instagram.com/risca_nnisa/"><i class="bi bi-instagram"></i></a></i>
+                <a href="https://wa.me/6289515103424"><i class="bi bi-whatsapp"></i></a>
+            </div>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="containerbride2">
+      <div class="containerg1">
+        <div class="groom1">
+          <div class="title1">The Groom</div>
+          <img class="bridecowo" src="aset/img/cowo.png" alt="Dwiky">
+          <div class="name1">
+            <p class="riz"> Rizki </p>
+            <p class="gus">Gustiawan Rizki,S.Kom. <br> Putra Pertama dari
+              <br>
+              Bapak Sukardi (Alm.) & <br> Ibu Heriyana
+            </p>
+            <p><a href="https://www.instagram.com/gustiawan.rizki/"><i class="bi bi-instagram"></i></a>
+              <a href="https://wa.me/6285384901484"><i class="bi bi-whatsapp"></i></a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="penambah">
+      <p>lala</p>
+      <p>lala</p>
+    </div>
+  </section>
+
+  <section class="date" id="date">
+    <div class="boxdate_waktu mb-5">
+      <div class="boxdate">
+        <p class="you">Counting Down To The Days</p>
+        <div class="launch-time">
+          <div>
+            <p id="days">00</p>
+            <span>Days</span>
+          </div>
+          <div>
+            <p id="hours">00</p>
+            <span>Hours</span>
+          </div>
+          <div>
+            <p id="minutes">00</p>
+            <span>Minutes</span>
+          </div>
+          <div>
+            <p id="seconds">00</p>
+            <span>Seconds</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <p class="savethedate text-center">Save The Date</p>
+    <p class="akan">Insya Allah akan dilaksanakan pada :</p>
+    <div class="containerakad">
+      <div class="akad_resepsi">
+        <img class="cincin" src="aset/img/cincin.png" alt="">
+        <p class="rsp1">AKAD</p>
+        <p class="rsp2">Nikah</p>
+        <p class="rsp3">Jumat</p>
+        <div class="solid4"></div>
+        <p class="rsp4">03</p>
+        <div class="solid5"></div>
+        <p class="rsp7">Mei 2024</p>
+        <p class="rsp5">Pukul 14.00 WIB - Selesai</p>
+        <p class="rsp6">BTN Mandala Blok E No 7, Tanjung Enim</p>
+        <a href="https://bit.ly/alamat_rumah_pengantin" class="btn btn-primary1">
+          <i class="bi bi-geo-alt"></i> Google MAP</a>
+        <div class="akad_rr">
+          <p> - Risca & Rizki -</p>
+        </div>
+      </div>
+    </div>
+    <div class="containerakad2">
+      <div class="resepsi_resepsi">
+        <div class="akad_rr2">
+          <p> - Risca & Rizki -</p>
+        </div>
+        <img class="cincin2" src="aset/img/cincin.png" alt="">
+        <p class="rsp12">RESEPSI</p>
+        <p class="rsp22">Nikah</p>
+        <p class="rsp32">Sabtu</p>
+        <div class="solid42"></div>
+        <p class="rsp42">04</p>
+        <div class="solid52"></div>
+        <p class="rsp72">Mei 2024</p>
+        <p class="rsp52">Pukul 10.00 WIB - Selesai</p>
+        <p class="rsp62">BTN Mandala Blok E No 7, Tanjung Enim</p>
+        <a href="https://bit.ly/alamat_rumah_pengantin" class="btn btn-primary1">
+          <i class="bi bi-geo-alt"></i> Google MAP</a>
+      </div>
+    </div>
+    <div class="pembuatrr text-center">
+      <p>riska-rizki</p>
+    </div>
+  </section>
+
+  <section class="galeri">
+    <div class="banner_galeri">
+      <!-- <div class="overlay_galeri">
+        <img class="bg_imggaleri" src="aset/img/62.png" alt="img">
+      </div> -->
+      <div class="galeri_isi">
+        <div class="slider_galeri">
+          <!-- list Items -->
+          <div class="list">
+            <div class="item active">
+              <img src="aset/img/ph1.jpg">
+            </div>
+            <div class="item">
+              <img src="aset/img/ph2.jpg">
+            </div>
+            <div class="item">
+              <img src="aset/img/ph3.jpg">
+            </div>
+            <div class="item">
+              <img src="aset/img/ph4.jpg">
+            </div>
+            <div class="item">
+              <img src="aset/img/ph5.jpg">
+            </div>
+            <div class="item">
+              <img src="aset/img/ph6.jpg">
+            </div>
+            <div class="item">
+              <img src="aset/img/ph7.jpg">
+            </div>
+            <div class="item">
+              <img src="aset/img/ph8.jpg">
+            </div>
+            <div class="item">
+              <img src="aset/img/ph9.jpg">
+            </div>
+          </div>
+        </div>
+        <div class="arrows">
+          <button id="prev">
+            < </button>
+              <button id="next">></button>
+        </div>
+        <div class="thumbnail">
+          <div class="item active">
+            <img src="aset/img/ph1.jpg">
+          </div>
+          <div class="item">
+            <img src="aset/img/ph2.jpg">
+          </div>
+          <div class="item">
+            <img src="aset/img/ph3.jpg">
+          </div>
+          <div class="item">
+            <img src="aset/img/ph4.jpg">
+          </div>
+          <div class="item">
+            <img src="aset/img/ph5.jpg">
+          </div>
+          <div class="item">
+            <img src="aset/img/ph6.jpg">
+          </div>
+          <div class="item">
+            <img src="aset/img/ph7.jpg">
+          </div>
+          <div class="item">
+            <img src="aset/img/ph8.jpg">
+          </div>
+          <div class="item">
+            <img src="aset/img/ph9.jpg">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="story" id="story">
+    <div class="penambah">
+      <p>lala</p>
+    </div>
+    <p class="ours">Our Story</p>
+    <p class="thisis">This is the start of something beautiful</p>
+    <div class="storykiri">
+      <img class="story1" src="aset/img/s1.png" alt="img">
+    </div>
+    <div class="storykanan">
+      <img class="arah" src="aset/img/s3.png" alt="">
+      <div class="story2">
+        <p class="ts1">Oktober 2023</p>
+        <p class="ts2">Pertemuan Pertama</p>
+        <p class="ts3">Pertama bertemu secara langsung di kediaman mempelai wanita</p>
+      </div>
+    </div>
+
+    <div class="storykiri">
+      <img class="story1" src="aset/img/s1.png" alt="img">
+    </div>
+    <div class="storykanan">
+      <img class="arah2" src="aset/img/s3.png" alt="">
+      <div class="story2">
+        <p class="ts1">Januari 2024</p>
+        <p class="ts2">Melamar</p>
+        <p class="ts3">Mempelai pria membawa keluarga untuk melamar</p>
+      </div>
+    </div>
+    <div class="storykiri">
+      <img class="story1" src="aset/img/s1.png" alt="img">
+    </div>
+    <div class="storykanan">
+      <img class="arah3" src="aset/img/s3.png" alt="">
+      <div class="story3">
+        <p class="ts1">Mei 2024</p>
+        <p class="ts2">Akad Nikah dan Resepsi</p>
+        <p class="ts3">Hingga diputuskan lah akad nikah pada tanggal 03 Mei 2024 dan resepsi pada tanggal 04 Mei
+          2024
+        </p>
+      </div>
+    </div>
+    <div class="penambah">
+      <p>lala</p>
+      <p>lala</p>
+      <p>lala</p>
+      <p>lala</p>
+    </div>
+  </section>
+
+  <img class="batasimageundangan3" src="aset/img/batas4.png" alt="">
+
+  <section class="gift" id="gift">
+    <div class="penambah">
+      <p>lala</p>
+      <p>lala</p>
+    </div>
+    <div class="gift text-center">
+      <img class="kado" src="aset/img/gift.png" alt="img">
+      <p class="wf">Wedding Gift</p>
+      <p class="doar">
+        Doa Restu Anda merupakan karunia yang sangat berarti bagi kami. Namun
+        jika memberi adalah ungkapan tanda kasih Anda, Anda dapat memberi kado
+        secara cashless ataupun mengirimkan hadiah ke alamat kami.
+      </p>
+    </div>
+    <div class="containermandiri">
+      <div class="mandiri">
+        <img class="logomandiri" src="aset/img/bsi.png" alt="">
+        <div class="card-text">
+          <p class="card-text" id="text1"> 7041537307 </p>
+          <p class="ra">Risca Annisa</p>
+        </div>
+        <div class="copy_text">
+          <button id="copytext1"><i class="bi bi-clipboard"></i> Copy no rekening</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="containerbni">
+      <div class="bni">
+        <img class="logobni" src="aset/img/bni.png" alt="" width="90px" height="auto">
+        <div class="card-text">
+          <p class="card-text" id="text2"> 0847034196 </p>
+          <p class="ra">Risca Annisa</p>
+        </div>
+        <div class="copy_text">
+          <button id="copytext2"><i class="bi bi-clipboard"></i> Copy no rekening</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="containergift">
+      <div class="kadorumah">
+        <img class="kadormh" src="aset/img/kado.png" alt="">
+        <div class="card-text">
+          <p class="card-text"> BTN Mandala Blok E No 7</p>
+          <p class="ra">Risca Annisa</p>
+        </div>
+        <div class="map">
+          <a href="https://bit.ly/alamat_rumah_pengantin" class="btn btn-primary2">
+            <i class="bi bi-geo-alt"></i> Google MAP</a>
+        </div>
+      </div>
+    </div>
+    <div class="penambah">
+      <p>lala</p>
+      <p>lala</p>
+      <p>lala</p>
+    </div>
+  </section>
+
+  <img class="batasimageundangan4" src="aset/img/batas5.png" alt="">
+
+  <section class="konfirmasi" id="konfirmasi">
+    <div class="penambah">
+      <p>lala</p>
+      <p>lala</p>
+      <p>lala</p>
+    </div>
+    <div class="konfirmasi text-center">
+      <p class="kk">Konfirmasi Kehadiran Anda</p>
+      <p class="tk">Tinggalkan kami doa terbaik anda untuk momen bahagia kami</p>
+    </div>
+    <div class="row justify-content-center text-center">
+      <div class="card1 mb-3" style="width: 21rem; height: 29rem;">
+        <div class="card-body">
+          <p class="buku">Buku Tamu</p>
+          <p class="isibuku">Isi Buku Tamu Online Pernikahan Kami</p>
+          <form id="commentForm">
+            <div class="form-group">
+              <input type="text" class="nama form-control mb-2" id="name" name="name" placeholder="Nama" required >
+            </div>
+            <div class="form-group">
+              <textarea class="ucapan form-control mb-2" id="comment" name="comment" rows="5"
+                placeholder="Ucapan" required></textarea>
+            </div>
+            <select class="konfirmasi form-select" aria-label="Default select example" required>
+            <option value="" selected disabled>Konfirmasi Kehadiran</option>
+              <option value="(Ya)">Ya</option>
+              <option value="(Tidak)">Tidak</option>
+            </select>
+            <button type="submit" class="btn btn-primary3 mt-4"><i class="bi bi-send"></i> Send</button>
+          </form>
+
+        </div>
+      </div>
+      <div class="komentar text-start">
+        <table id="example" style="width: 100%"></table>
+        <p id="passingGrade"></p>
+      </div>
+    </div>
+    <div class="penambah">
+      <p>lala</p>
+      <p>lala</p>
+      <p>lala</p>
+      <p>lala</p>
+    </div>
+  </section>
+  <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+  <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap.min.js"></script>
+  <script src="https://cdn.datatables.net/fixedheader/3.2.0/js/dataTables.fixedHeader.min.js"></script>
+  <script src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
+  <script src="https://cdn.datatables.net/responsive/2.2.9/js/responsive.bootstrap.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function () {
+      var dataTable;
+
+      function initializeDataTable() {
+        dataTable = $("#example").DataTable({
+          ajax: {
+            url: "https://script.google.com/macros/s/AKfycbydvSVyHbrV1lNH_KQrF6naOumOgmCHjXVFXZuaRrtkE3KuFo7aWIghS44mcVyIumub/exec",
+            dataSrc: "data",
+            data: function (d) {
+              d.order = [{ column: 0, dir: "asc" }]; // Mengatur pengurutan berdasarkan nomor baris secara descending
+            }
+          },
+          columns: [{
+            data: "row_number",
+            visible: false
+          },
+          {
+            data: function (row) {
+              return "" + row.name + " " + row.confirmation + "<br>" + row.comment + "<br><br>";
+            },
+            render: function (data) {
+              return data;
+            }
+          }
+          ],
+          rowId: "name",
+          liveAjax: true,
+          pageLength: 2, // Mengatur jumlah data yang ditampilkan per halaman menjadi 2
+          pagingType: "simple", // Mengatur tata letak pagination menjadi simple
+          pagingNumbers: false // Menyembunyikan tombol nomor halaman
+        });
+      }
+
+      initializeDataTable();
+
+      $("#commentForm").submit(function (event) {
+        event.preventDefault();
+        var formData = $(this).serializeArray();
+        var konfirmasi = $(".konfirmasi option:selected").val();
+        $.ajax({
+          url: "https://script.google.com/macros/s/AKfycbydvSVyHbrV1lNH_KQrF6naOumOgmCHjXVFXZuaRrtkE3KuFo7aWIghS44mcVyIumub/exec",
+          method: "POST",
+          dataType: "json",
+          data: JSON.stringify({
+            "name": formData[0].value,
+            "comment": formData[1].value,
+            "confirmation": konfirmasi
+          }),
+          success: function (response) {
+            if (response.success) {
+              swal("Success!", response.message, "success");
+              dataTable.ajax.reload();
+              $("#commentForm").trigger("reset");
+            } else {
+              swal("Error!", response.message, "error");
+            }
+          },
+          error: function (xhr, status, error) {
+            swal("Error!", "Failed to submit comment: " + error, "error");
+          }
+        });
+      });
+    });
+  </script>
+
+  <img class="batasimageundangan5" src="aset/img/batas4.png" alt="">
+
+  <section class="akhir" id="akhir">
+    <div class="img_inviteakhir">
+      <img class="img_inviteakhir" src="aset/img/ph9.jpg" alt="" width="200px" height="auto">
+    </div>
+    <p class="mrpkn">Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir
+      dan memberikan doa restunya untuk keberkahan pernikahan kami. Atas doa dan restunya. Kami ucapkan terima
+      kasih.</p>
+    <p class="kmiyg">Kami yang berbahagia</p>
+    <p class="risriz">Risca & Rizki</p>
+    <div class="burungakhir text-center">
+      <i class="bi bi-twitter"></i>
+    </div>
+    <div class="solidakhir"></div>
+    <div class="solidakhir2"></div>
+    <div class="pembuat text-center">
+      <p class="create text-center">CREATE WITH LOVE BY</p>
+      <img class="logoer" src="aset/img/logoer2.png" alt="" width="140px" height="auto">
+    </div>
+  </section>
+
+
+  <!-- <section class="akhir" id="akhir">
+    <div class="banner_akhir">
+      <div class="slider_akhir">
+        <img src="aset/img/bg9.png" alt="" id="slideakhir">
+      </div>
+      <div class="overlay_akhir text-center">
+        <img class="batas3" src="aset/img/batas4.png" alt="img" style="width: 100%; margin-top:-15.5rem;">
+        <div class="img_inviteakhir">
+          <img class="img_inviteakhir" src="aset/img/17.jpg" alt="" width="200px" height="auto">
+        </div>
+        <div class="animasibunga">
+          <img class="bunga_foto3" src="aset/img/bungafoto11.png" alt="img">
+          <img class="bunga_foto4" src="aset/img/bungafoto12.png" alt="img">
+        </div>
+        <p class="mrpkn">Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan
+          hadir
+          dan
+          memberikan
+          doa restunya untuk keberkahan pernikahan kami. Atas doa dan restunya. Kami ucapkan terima kasih.</p>
+        <p class="kmiyg">Kami yang berbahagia</p>
+        <p class="risriz">Risca & Rizki</p>
+        <div class="burungakhir">
+          <i class="bi bi-twitter"></i>
+        </div>
+        <div class="solidakhir"></div>
+        <div class="solidakhir2"></div>
+        <div class="pembuat">
+          <p class="create">CREATE WITH LOVE BY</p>
+          <img class="logoer" src="aset/img/logoer2.png" alt="" width="140px" height="auto">
+          <div class="logowa">
+            <a href="https://wa.me/62895604915478"><i class="bi bi-whatsapp wa1"></i></a>
+            <a href="https://www.instagram.com/emildarhmwt/"><i class=" bi bi-instagram ig1"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section> -->
+
+
+  <script>
+    var countDownDate = new Date("May 04, 2024 00:00:00").getTime()
+    var x = setInterval(function () {
+      var now = new Date().getTime();
+      var distance = countDownDate - now;
+
+      var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      var hours = Math.floor(distance % (1000 * 60 * 60 * 24) / (1000 * 60 * 60));
+      var minutes = Math.floor(distance % (1000 * 60 * 60) / (1000 * 60));
+      var seconds = Math.floor(distance % (1000 * 60) / 1000);
+
+      document.getElementById("days").innerHTML = days;
+      document.getElementById("hours").innerHTML = hours;
+      document.getElementById("minutes").innerHTML = minutes;
+      document.getElementById("seconds").innerHTML = seconds;
+
+    }, 1000);
+
+    let items = document.querySelectorAll('.slider_galeri .list .item');
+    let next = document.getElementById('next');
+    let prev = document.getElementById('prev');
+    let thumbnails = document.querySelectorAll('.thumbnail .item');
+
+    // config param
+    let countItem = items.length;
+    let itemActive = 0;
+    // event next click
+    next.onclick = function () {
+      itemActive = itemActive + 1;
+      if (itemActive >= countItem) {
+        itemActive = 0;
+      }
+      showSlider();
+    }
+    //event prev click
+    prev.onclick = function () {
+      itemActive = itemActive - 1;
+      if (itemActive < 0) {
+        itemActive = countItem - 1;
+      }
+      showSlider();
+    }
+    // auto run slider
+    let refreshInterval = setInterval(() => {
+      next.click();
+    }, 5000)
+    function showSlider() {
+      // remove item active old
+      let itemActiveOld = document.querySelector('.slider_galeri .list .item.active');
+      let thumbnailActiveOld = document.querySelector('.thumbnail .item.active');
+      itemActiveOld.classList.remove('active');
+      thumbnailActiveOld.classList.remove('active');
+
+      // active new item
+      items[itemActive].classList.add('active');
+      thumbnails[itemActive].classList.add('active');
+
+      // clear auto time run slider
+      clearInterval(refreshInterval);
+      refreshInterval = setInterval(() => {
+        next.click();
+      }, 5000)
+    }
+
+    // click thumbnail
+    thumbnails.forEach((thumbnail, index) => {
+      thumbnail.addEventListener('click', () => {
+        itemActive = index;
+        showSlider();
+      })
+    })
+
+    let copyText = document.querySelector(".copy_text");
+    copyText.querySelector("btn")
+
+    ScrollReveal({
+      reset: false,
+      distance: '60px',
+      duration: 2500,
+      delay: 400
+    });
+
+    ScrollReveal().reveal('.saturday, .tgl, .duaempat, .dan, .title, .bridecowo, .name1, .akad,.home_bunga1,.home_bunga3,.home_bunga5,.home_bunga6,.rsp4,.rsp42,.storykiri', { delay: 500, origin: 'left' });
+    ScrollReveal().reveal('.rr,.dgn,.you,.akan,.thisis,.doar, .card-text, .tk, .isibuku, .mrpkn,.bhg,.rsp1,.rsp2,.rsp12,.rsp22,.buku,.img_invite,.img_inviteakhir', { delay: 500, origin: 'top' });
+    ScrollReveal().reveal('.tgl, .duaempat, .bridecewe, .title1, .name, .jam,.home_bunga2,.home_bunga4,.rsp3,.rsp7,.rsp32,.rsp72,.storykanan', { delay: 500, origin: 'right' });
+    ScrollReveal().reveal('.img_save4, .pembuat, .risriz,.rsp5,.rsp6,.rsp52,.rsp62,.animasibunga', { delay: 500, origin: 'bottom' });
+
+    function copytext1(htmlElement) {
+      if (!htmlElement) {
+        return;
+      }
+      let elementText = htmlElement.innerText;
+      let inputElement = document.createElement('input');
+      inputElement.setAttribute('value', elementText);
+      document.body.appendChild(inputElement);
+
+      inputElement.select();
+      document.execCommand('copy');
+      inputElement.parentNode.removeChild(inputElement);
+    }
+
+    document.querySelector('#copytext1').onclick = function () {
+      copytext1(document.querySelector('#text1'));
+    }
+
+    function copytext2(htmlElement) {
+      if (!htmlElement) {
+        return;
+      }
+      let elementText = htmlElement.innerText;
+      let inputElement = document.createElement('input');
+      inputElement.setAttribute('value', elementText);
+      document.body.appendChild(inputElement);
+
+      inputElement.select();
+      document.execCommand('copy');
+      inputElement.parentNode.removeChild(inputElement);
+    }
+
+    document.querySelector('#copytext2').onclick = function () {
+      copytext2(document.querySelector('#text2'));
+    }
+
+    let start = 0;
+    otomatis();
+
+    function otomatis() {
+      const sliders = document.querySelectorAll(".sliders_save2");
+
+      for (let i = 0; i < sliders.length; i++) {
+        sliders[i].style.display = "none";
+      }
+
+      if (start >= sliders.length) {
+        start = 0;
+      }
+
+      sliders[start].style.display = "block";
+      console.log("gambar ke" + start);
+      start++;
+
+      setTimeout(otomatis, 3000);
+    }
+
+    window.addEventListener('DOMContentLoaded', function () {
+      var audio = document.getElementById("myAudio");
+      var icon = document.getElementById("playPauseIcon");
+
+      // Mulai pemutaran otomatis setelah halaman dimuat
+      audio.play();
+
+      // Ubah ikon menjadi ikon pause saat audio dimainkan
+      icon.src = "pause.svg";
+
+      // Toggle audio saat tombol diklik
+      document.getElementById("playPauseBtn").onclick = function () {
+        if (audio.paused) {
+          audio.play();
+          icon.src = "pause.svg"; // Ganti ikon dengan ikon pause saat audio dimainkan
+        } else {
+          audio.pause();
+          icon.src = "play.svg"; // Ganti ikon dengan ikon play saat audio dijeda
+        }
+      };
+    });
+
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"></script>
+</body>
+
+
+</html>
